@@ -49,7 +49,7 @@ const Section = ({ title, subtitle, children, id, className = "", dark = true })
     </div>
     {/* Subtle Sprocket Background Element */}
     <div className="absolute -bottom-24 -right-24 opacity-5 pointer-events-none">
-       <SmartImage src="/lang-logo-new.png?v=10" alt="" className="w-96 h-96 grayscale invert animate-spin-slow" style={{ animationDuration: '60s' }} />
+       <img src="/lang-logo-new.png?v=10" alt="" className="w-96 h-96 grayscale invert animate-spin-slow" style={{ animationDuration: '60s' }} />
     </div>
   </section>
 );
@@ -74,51 +74,6 @@ const Button = ({ children, variant = "primary", className = "", ...props }) => 
     </button>
   );
 };
-
-const imageFallbacks = {
-  "/about-workshop.jpeg": ["/about-workshop.png", "/nick-bike-darkened.jpeg", "/nick-bike-darkened.png", "/nick-bike.jpeg", "/nick-bike.png"],
-  "/cr250-96-progress.jpeg": [],
-  "/bsa-side.jpeg": ["/bsa-restoration.jpeg"],
-  "/bsa-restoration.jpeg": ["/bsa-side.jpeg"],
-};
-
-function SmartImage({ src, alt = "", className = "", ...props }) {
-  const [currentSrc, setCurrentSrc] = useState(src);
-  const [attempt, setAttempt] = useState(0);
-
-  useEffect(() => {
-    setCurrentSrc(src);
-    setAttempt(0);
-  }, [src]);
-
-  const getCandidates = () => {
-    const custom = imageFallbacks[src] || [];
-    const generic = [];
-
-    if (typeof src === 'string' && src.startsWith('/') && !src.startsWith('//')) {
-      if (src.endsWith('.jpeg')) {
-        generic.push(src.replace(/\.jpeg$/, '.png'), src.replace(/\.jpeg$/, '.jpg'));
-      } else if (src.endsWith('.jpg')) {
-        generic.push(src.replace(/\.jpg$/, '.jpeg'), src.replace(/\.jpg$/, '.png'));
-      } else if (src.endsWith('.png')) {
-        generic.push(src.replace(/\.png$/, '.jpeg'), src.replace(/\.png$/, '.jpg'));
-      }
-    }
-
-    return [...new Set([src, ...custom, ...generic])];
-  };
-
-  const handleError = () => {
-    const candidates = getCandidates();
-    const nextAttempt = attempt + 1;
-    if (nextAttempt < candidates.length) {
-      setAttempt(nextAttempt);
-      setCurrentSrc(candidates[nextAttempt]);
-    }
-  };
-
-  return <img src={currentSrc} alt={alt} className={className} onError={handleError} {...props} />;
-}
 
 // --- Main App ---
 export default function App() {
@@ -425,7 +380,7 @@ export default function App() {
           )}>
             <div className="max-w-7xl mx-auto h-full flex justify-between items-center relative">
               <Link to="/" className="relative group flex items-center h-full w-32 md:w-48" onClick={(e) => { if (location.pathname === '/') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); } }}>
-                <SmartImage 
+                <img 
                   src="/lang-logo-new.png?v=10" 
                   alt="Lang Restorations" 
                   className={cn(
@@ -476,7 +431,7 @@ export default function App() {
                 className="fixed inset-0 z-[100] bg-black p-8 flex flex-col"
               >
                 <div className="flex justify-between items-center mb-16">
-                  <SmartImage src="/lang-logo-new.png?v=10" alt="Logo" className="h-32 w-auto drop-shadow-2xl" />
+                  <img src="/lang-logo-new.png?v=10" alt="Logo" className="h-32 w-auto drop-shadow-2xl" />
                   <button onClick={() => setMobileMenuOpen(false)} className="text-white"><X size={32} /></button>
                 </div>
                 <div className="flex flex-col gap-8">
@@ -505,7 +460,7 @@ export default function App() {
           {/* Hero */}
           <section className="relative min-h-screen flex items-center overflow-hidden">
             <div className="absolute inset-0">
-              <SmartImage src="/hero-bike.jpeg" alt="Workshop" className="w-full h-full object-cover scale-105" />
+              <img src="/hero-bike.jpeg" alt="Workshop" className="w-full h-full object-cover scale-105" />
               <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20" />
             </div>
@@ -557,7 +512,7 @@ export default function App() {
             <div className="grid lg:grid-cols-2 gap-20 items-center">
               <div className="relative group">
                 <div className="absolute -inset-4 border border-red-600/30 group-hover:-inset-6 transition-all duration-700" />
-                <SmartImage src="/about-workshop.jpeg" alt="Workshop Close-up" className="relative z-10 w-full h-auto hover:scale-105 transition-all duration-700 shadow-2xl" />
+                <img src="/about-workshop.jpeg" alt="Workshop Close-up" className="relative z-10 w-full h-auto hover:scale-105 transition-all duration-700 shadow-2xl" />
                 <div className="absolute bottom-10 right-10 z-20 bg-red-600 p-6 shadow-2xl">
                    <p className="text-white font-black text-4xl italic">20+</p>
                    <p className="text-white/80 text-[10px] font-bold uppercase tracking-widest">Years Exp.</p>
@@ -644,7 +599,7 @@ export default function App() {
                 >
                   <Link to={`/projects/${project.slug}`} className="block relative overflow-hidden aspect-[4/3] mb-6 bg-gray-900">
                     {project.img
-                      ? <SmartImage
+                      ? <img
                           src={project.img}
                           alt={project.name}
                           className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
@@ -686,7 +641,7 @@ export default function App() {
                   {/* Image / placeholder */}
                   <div className="aspect-[4/3] bg-gray-900 border border-gray-800 flex items-center justify-center mb-5 relative overflow-hidden">
                     {listing.img
-                      ? <SmartImage src={listing.img} alt={listing.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      ? <img src={listing.img} alt={listing.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       : <span className="text-gray-700 text-[10px] font-black uppercase tracking-widest">Images Coming Soon</span>
                     }
                     <div className="absolute top-4 left-4 flex gap-2">
@@ -850,7 +805,7 @@ export default function App() {
           <footer className="py-12 px-6 bg-black border-t border-gray-900">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
               <div className="flex items-center gap-6">
-                 <SmartImage src="/lang-logo-new.png?v=10" alt="Logo" className="h-32 w-auto opacity-80 drop-shadow-2xl" />
+                 <img src="/lang-logo-new.png?v=10" alt="Logo" className="h-32 w-auto opacity-80 drop-shadow-2xl" />
                  <div className="opacity-80">
                    <p className="font-black uppercase tracking-tighter leading-none">Lang</p>
                    <p className="text-[8px] font-bold text-red-600 uppercase tracking-[0.3em]">Restorations</p>
@@ -1014,7 +969,7 @@ function ForSalePage({ forsaleListings }) {
     >
       <div className="aspect-[4/3] bg-gray-900 border border-gray-800 flex items-center justify-center mb-5 relative overflow-hidden">
         {listing.img
-          ? <SmartImage src={listing.img} alt={listing.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          ? <img src={listing.img} alt={listing.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
           : <span className="text-gray-700 text-[10px] font-black uppercase tracking-widest">Images Coming Soon</span>
         }
         <div className="absolute top-4 left-4">
@@ -1130,7 +1085,7 @@ function ProjectPage({ projects }) {
       {/* Hero Image */}
       <div className="max-w-7xl mx-auto px-6 mb-16">
         <div className="relative overflow-hidden aspect-[16/9] bg-gray-900">
-          <SmartImage 
+          <img 
             src={project.img} 
             alt={project.name} 
             className="w-full h-full object-cover"
@@ -1205,14 +1160,14 @@ function ProjectPage({ projects }) {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-3">
                   <div className="relative overflow-hidden aspect-[4/3] bg-gray-900">
-                    <SmartImage src={project.img} alt="Build in progress" className="w-full h-full object-cover" />
+                    <img src={project.img} alt="Build in progress" className="w-full h-full object-cover" />
                   </div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-gray-400">Work In Progress</p>
                 </div>
                 {project.img2 && (
                   <div className="space-y-3">
                     <div className="relative overflow-hidden aspect-[4/3] bg-gray-900">
-                      <SmartImage src={project.img2} alt="Build in progress" className="w-full h-full object-cover" />
+                      <img src={project.img2} alt="Build in progress" className="w-full h-full object-cover" />
                     </div>
                     <p className="text-[10px] font-black uppercase tracking-widest text-gray-400">Work In Progress</p>
                   </div>
@@ -1222,13 +1177,13 @@ function ProjectPage({ projects }) {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-3">
                   <div className="relative overflow-hidden aspect-[4/3] bg-gray-900">
-                    <SmartImage src={project.beforeImg} alt="Before" className="w-full h-full object-cover" />
+                    <img src={project.beforeImg} alt="Before" className="w-full h-full object-cover" />
                   </div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-gray-500">Before</p>
                 </div>
                 <div className="space-y-3">
                   <div className="relative overflow-hidden aspect-[4/3] bg-gray-900">
-                    <SmartImage src={project.img} alt="Restored" className="w-full h-full object-cover" />
+                    <img src={project.img} alt="Restored" className="w-full h-full object-cover" />
                   </div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-red-600">Restored</p>
                 </div>
@@ -1237,13 +1192,13 @@ function ProjectPage({ projects }) {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-3">
                   <div className="relative overflow-hidden aspect-[4/3] bg-gray-900">
-                    <SmartImage src={project.img} alt="Restored" className="w-full h-full object-cover" />
+                    <img src={project.img} alt="Restored" className="w-full h-full object-cover" />
                   </div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-red-600">Restored</p>
                 </div>
                 <div className="space-y-3">
                   <div className="relative overflow-hidden aspect-[4/3] bg-gray-900">
-                    <SmartImage src={project.img2} alt="Build Detail" className="w-full h-full object-cover" />
+                    <img src={project.img2} alt="Build Detail" className="w-full h-full object-cover" />
                   </div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-red-600">In The Workshop</p>
                 </div>
@@ -1251,7 +1206,7 @@ function ProjectPage({ projects }) {
             ) : (
               <div className="space-y-3 max-w-2xl">
                 <div className="relative overflow-hidden aspect-[4/3] bg-gray-900">
-                  <SmartImage src={project.img} alt="Restored" className="w-full h-full object-cover" />
+                  <img src={project.img} alt="Restored" className="w-full h-full object-cover" />
                 </div>
                 <p className="text-[10px] font-black uppercase tracking-widest text-red-600">Restored</p>
               </div>
