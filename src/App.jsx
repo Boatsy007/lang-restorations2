@@ -77,10 +77,9 @@ const Button = ({ children, variant = "primary", className = "", ...props }) => 
 
 const imageFallbacks = {
   "/about-workshop.jpeg": ["/about-workshop.png", "/nick-bike-darkened.jpeg", "/nick-bike-darkened.png", "/nick-bike.jpeg", "/nick-bike.png"],
-  "/cr250-quality-1.png": ["/cr250-quality-1.jpeg", "/cr250-quality-1.jpg", "/cr250-96-progress.jpeg", "/cr250-96-progress.png"],
-  "/cr250-quality-2.png": ["/cr250-quality-2.jpeg", "/cr250-quality-2.jpg", "/cr250-quality-3.png", "/cr250-quality-3.jpeg"],
-  "/bsa-side.png": ["/bsa-side.jpeg", "/bsa-progress-1.jpeg", "/bsa-progress-1.png", "/bsa-restoration.png", "/bsa-restoration.jpeg"],
-  "/bsa-restoration.png": ["/bsa-restoration.jpeg", "/bsa-progress-2.jpeg", "/bsa-progress-2.png", "/bsa-side.png", "/bsa-side.jpeg"],
+  "/cr250-96-progress.jpeg": [],
+  "/bsa-side.jpeg": ["/bsa-restoration.jpeg"],
+  "/bsa-restoration.jpeg": ["/bsa-side.jpeg"],
 };
 
 function SmartImage({ src, alt = "", className = "", ...props }) {
@@ -215,8 +214,7 @@ export default function App() {
       name: "1996 Honda CR250",
       slug: "1996-honda-cr250",
       type: "Motocross",
-      img: "/cr250-quality-1.png",
-      img2: "/cr250-quality-2.png",
+      img: "/cr250-96-progress.jpeg",
       beforeImg: "",
       showBefore: false,
       year: "1996",
@@ -270,8 +268,8 @@ export default function App() {
       name: "1954 BSA Bantam D3 Plunger",
       slug: "1954-bsa-bantam-d3-plunger",
       type: "Vintage",
-      img: "/bsa-side.png",
-      img2: "/bsa-restoration.png",
+      img: "/bsa-side.jpeg",
+      img2: "/bsa-restoration.jpeg",
       beforeImg: "",
       showBefore: false,
       year: "1954",
@@ -646,7 +644,7 @@ export default function App() {
                 >
                   <Link to={`/projects/${project.slug}`} className="block relative overflow-hidden aspect-[4/3] mb-6 bg-gray-900">
                     {project.img
-                      ? <img
+                      ? <SmartImage
                           src={project.img}
                           alt={project.name}
                           className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
