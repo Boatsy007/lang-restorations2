@@ -80,9 +80,53 @@ export default function App() {
   const [view, setView] = useState('design'); // Defaulting to design now
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    service: 'Full Restoration',
+    message: ''
+  });
+  const [sending, setSending] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
   const pendingScroll = useRef(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setSending(true);
+    setSuccess(false);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send enquiry');
+      }
+
+      setSuccess(true);
+      setFormData({
+        name: '',
+        email: '',
+        service: 'Full Restoration',
+        message: ''
+      });
+    } catch (error) {
+      console.error(error);
+      setErrorMessage('Something went wrong. Please call or email Lang Restorations directly.');
+    }
+
+    setSending(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -759,34 +803,75 @@ const handleMobileNav = (target) => {
                 </div>
               </div>
 
-              <form className="bg-black p-10 border border-gray-900 space-y-6 shadow-2xl relative">
+              <form
+                onSubmit={handleSubmit}
+                className="bg-black p-10 border border-gray-900 space-y-6 shadow-2xl relative"
+              >
                 <div className="absolute -top-1 -left-1 w-8 h-8 border-t-2 border-l-2 border-red-600" />
+
                 <div className="grid md:grid-cols-2 gap-6">
                    <div className="space-y-2">
                      <label className="text-[10px] font-black uppercase tracking-widest text-gray-500">Full Name</label>
-                     <input type="text" className="w-full bg-[#111] border border-gray-800 p-4 text-white focus:outline-none focus:border-red-600 transition-colors" />
+                     <input
+                       type="text"
+                       required
+                       value={formData.name}
+                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                       className="w-full bg-[#111] border border-gray-800 p-4 text-white focus:outline-none focus:border-red-600 transition-colors"
+                     />
                    </div>
                    <div className="space-y-2">
                      <label className="text-[10px] font-black uppercase tracking-widest text-gray-500">Email Address</label>
-                     <input type="email" className="w-full bg-[#111] border border-gray-800 p-4 text-white focus:outline-none focus:border-red-600 transition-colors" />
+                     <input
+                       type="email"
+                       required
+                       value={formData.email}
+                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                       className="w-full bg-[#111] border border-gray-800 p-4 text-white focus:outline-none focus:border-red-600 transition-colors"
+                     />
                    </div>
                 </div>
+
                 <div className="space-y-2">
                   <label className="text-[10px] font-black uppercase tracking-widest text-gray-500">Service Required</label>
-                  <select className="w-full bg-[#111] border border-gray-800 p-4 text-white focus:outline-none focus:border-red-600 transition-colors appearance-none">
+                  <select
+                    value={formData.service}
+                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                    className="w-full bg-[#111] border border-gray-800 p-4 text-white focus:outline-none focus:border-red-600 transition-colors appearance-none"
+                  >
                     <option>Full Restoration</option>
                     <option>Engine Rebuild</option>
                     <option>Custom Fabrication</option>
                     <option>General Repair</option>
                   </select>
                 </div>
+
                 <div className="space-y-2">
                   <label className="text-[10px] font-black uppercase tracking-widest text-gray-500">Your Bike & Vision</label>
-                  <textarea rows={5} className="w-full bg-[#111] border border-gray-800 p-4 text-white focus:outline-none focus:border-red-600 transition-colors"></textarea>
+                  <textarea
+                    rows={5}
+                    required
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full bg-[#111] border border-gray-800 p-4 text-white focus:outline-none focus:border-red-600 transition-colors"
+                  />
                 </div>
-                <Button variant="primary" className="w-full">
-                  Submit Inquiry
+
+                <Button variant="primary" className="w-full" type="submit" disabled={sending}>
+                  {sending ? 'Sending...' : 'Submit Inquiry'}
                 </Button>
+
+                {success && (
+                  <div className="text-green-500 text-center font-semibold">
+                    Thank you. Your enquiry has been sent successfully.
+                  </div>
+                )}
+
+                {errorMessage && (
+                  <div className="text-red-500 text-center font-semibold">
+                    {errorMessage}
+                  </div>
+                )}
               </form>
             </div>
           </Section>
