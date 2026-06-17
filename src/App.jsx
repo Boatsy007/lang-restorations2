@@ -219,19 +219,19 @@ export default function App() {
       work: "Full OEM-style restoration. Complete strip-down, inspect and rebuild to factory specification. Frame, plastics and bodywork restored to original finish. Engine rebuild to correct tolerances. All ancillaries restored or sourced to period-correct specification.",
       status: "Completed"
     },
-    {
-      name: "1954 BSA Bantam D3 Plunger",
-      slug: "1954-bsa-bantam-d3-plunger",
-      type: "Vintage",
-      img: "/bsa-side.jpeg",
-      img2: "/bsa-restoration.jpeg",
-      beforeImg: "",
-      showBefore: false,
-      year: "1954",
-      engine: "148cc Single-Cylinder Two-Stroke",
-      work: "This build is a full OEM-style restoration of a classic 1954 BSA Bantam D3 Plunger, being carefully rebuilt to retain its original character while benefiting from a modern 12-volt ignition system for improved reliability and everyday usability.\n\nNo shortcuts are being taken on this one. Every component is being inspected, repaired, restored or replaced where required to bring the bike back to the standard it deserves. Countless hours have already gone into the project, with a strong focus on authenticity, quality workmanship and attention to detail.\n\nThis restoration is currently in progress, with more updates to come as the build continues.",
-      status: "In Progress"
-    },
+   {
+  name: "1954 BSA Bantam D3 Plunger",
+  slug: "1954-bsa-bantam-d3-plunger",
+  type: "Vintage",
+  img: "/bsa-progress-1.jpeg",
+  img2: "/bsa-progress-2.jpeg",
+  beforeImg: "",
+  showBefore: false,
+  year: "1954",
+  engine: "148cc Single-Cylinder Two-Stroke",
+  work: "This build is a full OEM-style restoration of a classic 1954 BSA Bantam D3 Plunger, being carefully rebuilt to retain its original character while benefiting from a modern 12-volt ignition system for improved reliability and everyday usability.\n\nNo shortcuts are being taken on this one. Every component is being inspected, repaired, restored or replaced where required to bring the bike back to the standard it deserves. Countless hours have already gone into the project, with a strong focus on authenticity, quality workmanship and attention to detail.\n\nThis restoration is currently in progress, with more updates to come as the build continues.",
+  status: "In Progress"
+},
     {
       name: "1978 Honda Z50 J1",
       slug: "1978-honda-z50-j1",
