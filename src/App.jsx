@@ -360,14 +360,6 @@ export default function App() {
 
   return (
     <div className={cn("min-h-screen selection:bg-red-600 selection:text-white antialiased", view === 'wireframe' ? 'bg-white text-black font-mono' : 'bg-black text-white font-sans')}>
-      
-      {/* Design/Wireframe Toggle (Admin feature) */}
-      <button 
-        onClick={() => setView(view === 'wireframe' ? 'design' : 'wireframe')}
-        className="fixed bottom-6 right-6 z-[100] px-4 py-2 bg-red-600 text-white font-bold text-[10px] uppercase tracking-widest shadow-2xl opacity-20 hover:opacity-100 transition-opacity"
-      >
-        {view === 'wireframe' ? 'Switch to Design' : 'View Wireframe'}
-      </button>
 
       {view === 'wireframe' ? (
         <WireframeLayout />
