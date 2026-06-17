@@ -1,57 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lang Restorations | Premium Motorcycle Restorations</title>
-    <meta name="description" content="Expert vintage motorcycle restorations in Traralgon, VIC. From vintage MX weapons to classic road bikes, Nick Lang delivers high-end, period-correct builds with 20+ years of experience.">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Open Graph / Social Sharing -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://langrestorations.playcode.io/">
-    <meta property="og:title" content="Lang Restorations | Premium Motorcycle Restorations">
-    <meta property="og:description" content="Expert vintage motorcycle restorations in Traralgon, VIC. High-end, period-correct builds with 20+ years of experience.">
-    <meta property="og:image" content="/hero-bike.png">
+  <title>Lang Restorations | Premium Motorcycle Restorations</title>
 
-    <meta name="theme-color" content="#000000">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="description"
+    content="Expert vintage motorcycle restorations in Traralgon, VIC. From vintage MX weapons to classic road bikes, Nick Lang delivers high-end, period-correct builds with 20+ years of experience."
+  >
 
-    <link rel="stylesheet" href="styles.css">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://langrestorations.com.au">
+  <meta property="og:title" content="Lang Restorations | Premium Motorcycle Restorations">
+  <meta
+    property="og:description"
+    content="Expert vintage motorcycle restorations in Traralgon, VIC. High-end, period-correct builds with 20+ years of experience."
+  >
+  <meta property="og:image" content="/hero-bike.png">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <style>
-      html, body {
-        background-color: #000000;
-        margin: 0;
-        padding: 0;
-        scroll-behavior: smooth;
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    html,
+    body,
+    #root {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      background: #000;
+    }
+
+    * {
+      font-family: 'Inter', system-ui, sans-serif;
+      box-sizing: border-box;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
       }
-
-      * {
-        font-family: 'Inter', system-ui, sans-serif;
+      50% {
+        transform: translateY(-10px);
       }
+    }
 
-      @keyframes float {
-        0%, 100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-      }
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+  </style>
+</head>
 
-      .animate-float {
-        animation: float 6s ease-in-out infinite;
-      }
-    </style>
-  </head>
+<body>
+  <div id="root"></div>
 
-  <body class="bg-black text-white antialiased overflow-x-hidden">
-    <div id="root"></div>
-
-    <script type="module" src="/src/index.jsx"></script>
-  </body>
+  <script type="module" src="/src/index.jsx"></script>
+</body>
 </html>
