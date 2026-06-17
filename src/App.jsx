@@ -124,10 +124,12 @@ export default function App() {
     }
   };
 
-  const handleMobileNav = (target) => {
+const handleMobileNav = (target) => {
+  handleNav(target);
+  setTimeout(() => {
     setMobileMenuOpen(false);
-    handleNav(target);
-  };
+  }, 250);
+};
 
   const services = [
     { title: "Full Bike Restorations", icon: Settings, desc: "Complete ground-up restorations built to period-correct standards with attention to every detail." },
