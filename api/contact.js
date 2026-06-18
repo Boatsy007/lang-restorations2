@@ -55,7 +55,7 @@ export default async function handler(req, res) {
     `;
 
     await resend.emails.send({
-      from: 'Lang Restorations <noreply@langrestorations.com>',
+      from: 'Lang Restorations <info@langrestorations.com>',
       to: ['info@langrestorations.com'],
       replyTo: email,
       subject: `New Website Enquiry from ${safeName}`,
@@ -112,7 +112,7 @@ export default async function handler(req, res) {
     });
 
     await resend.emails.send({
-      from: 'Lang Restorations <noreply@langrestorations.com>',
+      from: 'Lang Restorations <info@langrestorations.com>',
       to: [email],
       replyTo: 'info@langrestorations.com',
       subject: 'We received your enquiry — Lang Restorations',
