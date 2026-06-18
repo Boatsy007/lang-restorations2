@@ -159,7 +159,7 @@ export default async function handler(req, res) {
               </div>
 
               <a
-                href="https://www.langrestorations.com.au"
+                href="https://www.langrestorations.com"
                 style="display:inline-block;background:#dc2626;color:#ffffff;text-decoration:none;padding:16px 26px;font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase;"
               >
                 Visit Website
