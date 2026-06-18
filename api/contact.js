@@ -28,15 +28,21 @@ export default async function handler(req, res) {
     const safeService = escapeHtml(service || 'Not selected');
     const safeMessage = escapeHtml(message).replace(/\n/g, '<br>');
 
-    const logoUrl = 'https://www.langrestorations.com.au/langlogowhite.png';
+    const logoUrl = 'https://www.langrestorations.com/langlogowhite.png';
 
     const brandHeader = `
-      <div style="background:#000000;text-align:center;padding:40px 20px;border-bottom:3px solid #dc2626;">
+      <div style="background:#000000;text-align:center;padding:32px 20px;border-bottom:3px solid #dc2626;">
         <img
           src="${logoUrl}"
           alt="Lang Restorations"
-          style="max-width:220px;width:100%;height:auto;display:block;margin:0 auto;"
+          style="max-width:160px;width:100%;height:auto;display:block;margin:0 auto 20px;"
         />
+
+        <div style="color:#ffffff;font-size:32px;font-weight:900;font-style:italic;line-height:1;text-transform:uppercase;letter-spacing:-1px;">
+          RESTORE<span style="color:#dc2626;">.</span><br>
+          REVIVE<span style="color:#dc2626;">.</span><br>
+          RIDE<span style="color:#dc2626;">.</span>
+        </div>
       </div>
     `;
 
@@ -180,7 +186,7 @@ export default async function handler(req, res) {
           </div>
 
           <a
-            href="https://www.langrestorations.com.au"
+            href="https://www.langrestorations.com"
             style="display:inline-block;background:#dc2626;color:#ffffff;text-decoration:none;padding:16px 26px;font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase;"
           >
             View Our Builds
