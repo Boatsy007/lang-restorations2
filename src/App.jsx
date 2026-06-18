@@ -563,7 +563,7 @@ const handleMobileNav = (target) => {
                 </p>
                 <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
                   <p>
-                    I've been bringing old bikes back to life for over 20 years, and I still get just as excited about every build that rolls into the workshop. Whether it's a vintage motocross weapon, a classic road bike, or something with a bit of family history behind it, I treat every project like it’t do "near enough".
+                    I've been bringing old bikes back to life for over 20 years, and I still get just as excited about every build that rolls into the workshop. Whether it's a vintage motocross weapon, a classic road bike, or something with a bit of family history behind it, I treat every project as if it were my own.".
                   </p>
                   <p>
                     This isn’t a production shop pumping out quick jobs. Every restoration is treated as a piece of history. We use the right techniques, the right tools, and the right attitude.
