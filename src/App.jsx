@@ -1,7 +1,3 @@
-import {
-  Facebook,
-  Instagram
-} from "lucide-react";
 import React, { useState, useEffect, useRef } from 'react';
 import { Routes, Route, Link, useParams, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
