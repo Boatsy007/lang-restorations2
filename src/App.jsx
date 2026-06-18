@@ -790,17 +790,33 @@ const handleMobileNav = (target) => {
                   </div>
                 </div>
 
-                <div className="space-y-6">
-                   <h4 className="font-black uppercase text-sm">Follow the Builds</h4>
-                   <div className="flex gap-4">
-                      <a href="#" className="w-12 h-12 bg-gray-900 flex items-center justify-center hover:bg-red-600 transition-colors">
-                        <Instagram size={20} />
-                      </a>
-                      <a href="#" className="w-12 h-12 bg-gray-900 flex items-center justify-center hover:bg-red-600 transition-colors">
-                        <Facebook size={20} />
-                      </a>
-                   </div>
-                </div>
+              <div className="space-y-6">
+  <h4 className="font-black uppercase text-sm">Follow the Builds</h4>
+
+  <div className="flex gap-4">
+
+    <a
+      href="https://www.instagram.com/langrestorations/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"
+      className="w-12 h-12 bg-gray-900 flex items-center justify-center text-white hover:bg-red-600 hover:text-white transition-all duration-300"
+    >
+      <Instagram size={20} />
+    </a>
+
+    <a
+      href="https://www.facebook.com/langrestorations/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Facebook"
+      className="w-12 h-12 bg-gray-900 flex items-center justify-center text-white hover:bg-red-600 hover:text-white transition-all duration-300"
+    >
+      <Facebook size={20} />
+    </a>
+
+  </div>
+</div>
               </div>
 
               <form
