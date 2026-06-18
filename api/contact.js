@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     }
 
     await resend.emails.send({
-      from: 'Lang Restorations <onboarding@resend.dev>',
+      from: 'Lang Restorations <info@langrestorations.com>',
       to: ['info@langrestorations.com'],
       replyTo: email,
       subject: `New Website Enquiry from ${name}`,
