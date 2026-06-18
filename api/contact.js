@@ -28,15 +28,17 @@ export default async function handler(req, res) {
     const safeService = escapeHtml(service || 'Not selected');
     const safeMessage = escapeHtml(message).replace(/\n/g, '<br>');
 
+    const logoUrl = 'https://www.langrestorations.com/langlogowhite.png';
+
     const brandHeader = `
-      <div style="background:#000000;text-align:center;padding:30px 20px;border-bottom:3px solid #dc2626;">
-        <div style="color:#ffffff;font-size:22px;font-weight:900;text-transform:uppercase;letter-spacing:4px;margin-bottom:18px;">
-          Lang Restorations
-        </div>
+      <div style="background:#000000;text-align:center;padding:32px 20px;border-bottom:3px solid #dc2626;">
+        <img
+          src="${logoUrl}"
+          alt="Lang Restorations"
+          style="max-width:160px;width:100%;height:auto;display:block;margin:0 auto 20px;"
+        />
 
-        <div style="height:2px;width:70px;background:#dc2626;margin:0 auto 20px;"></div>
-
-        <div style="color:#ffffff;font-size:34px;font-weight:900;font-style:italic;line-height:0.95;text-transform:uppercase;letter-spacing:-1px;">
+        <div style="color:#ffffff;font-size:32px;font-weight:900;font-style:italic;line-height:1;text-transform:uppercase;letter-spacing:-1px;">
           RESTORE<span style="color:#dc2626;">.</span><br>
           REVIVE<span style="color:#dc2626;">.</span><br>
           RIDE<span style="color:#dc2626;">.</span>
@@ -45,7 +47,7 @@ export default async function handler(req, res) {
     `;
 
     const footer = `
-      <div style="padding:26px 20px;text-align:center;background:#050505;border-top:1px solid #1f1f1f;">
+      <div style="padding:28px 20px;text-align:center;background:#050505;border-top:1px solid #1f1f1f;">
         <p style="margin:0 0 8px;color:#ffffff;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:2px;">
           Lang Restorations
         </p>
@@ -79,29 +81,43 @@ export default async function handler(req, res) {
       html: `
         ${pageStart}
 
-        <div style="padding:38px 32px;">
+        <div style="padding:40px 34px;">
           <p style="margin:0 0 12px;color:#dc2626;font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;">
             New website enquiry
           </p>
 
-          <h1 style="margin:0 0 20px;color:#ffffff;font-size:34px;line-height:1.05;font-weight:900;text-transform:uppercase;">
+          <h1 style="margin:0 0 20px;color:#ffffff;font-size:36px;line-height:1.05;font-weight:900;text-transform:uppercase;">
             ${safeName}
           </h1>
 
-          <div style="height:2px;width:76px;background:#dc2626;margin:0 0 28px;"></div>
+          <div style="height:2px;width:76px;background:#dc2626;margin:0 0 30px;"></div>
 
-          <table style="width:100%;border-collapse:collapse;margin-bottom:28px;">
+          <table style="width:100%;border-collapse:collapse;margin-bottom:30px;">
             <tr>
-              <td style="padding:14px 0;border-bottom:1px solid #222;color:#777;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;width:140px;">Name</td>
-              <td style="padding:14px 0;border-bottom:1px solid #222;color:#ffffff;font-size:15px;font-weight:700;">${safeName}</td>
+              <td style="padding:15px 0;border-bottom:1px solid #222;color:#777;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;width:140px;">
+                Name
+              </td>
+              <td style="padding:15px 0;border-bottom:1px solid #222;color:#ffffff;font-size:15px;font-weight:700;">
+                ${safeName}
+              </td>
             </tr>
+
             <tr>
-              <td style="padding:14px 0;border-bottom:1px solid #222;color:#777;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;">Email</td>
-              <td style="padding:14px 0;border-bottom:1px solid #222;color:#ffffff;font-size:15px;font-weight:700;">${safeEmail}</td>
+              <td style="padding:15px 0;border-bottom:1px solid #222;color:#777;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;">
+                Email
+              </td>
+              <td style="padding:15px 0;border-bottom:1px solid #222;color:#ffffff;font-size:15px;font-weight:700;">
+                ${safeEmail}
+              </td>
             </tr>
+
             <tr>
-              <td style="padding:14px 0;border-bottom:1px solid #222;color:#777;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;">Service</td>
-              <td style="padding:14px 0;border-bottom:1px solid #222;color:#ffffff;font-size:15px;font-weight:700;">${safeService}</td>
+              <td style="padding:15px 0;border-bottom:1px solid #222;color:#777;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;">
+                Service
+              </td>
+              <td style="padding:15px 0;border-bottom:1px solid #222;color:#ffffff;font-size:15px;font-weight:700;">
+                ${safeService}
+              </td>
             </tr>
           </table>
 
@@ -113,7 +129,7 @@ export default async function handler(req, res) {
             ${safeMessage}
           </div>
 
-          <div style="margin-top:28px;background:#160707;border-left:4px solid #dc2626;padding:18px 20px;">
+          <div style="margin-top:30px;background:#160707;border-left:4px solid #dc2626;padding:18px 20px;">
             <p style="margin:0;color:#ffffff;font-size:14px;line-height:1.6;">
               Reply directly to this email to respond to the customer.
             </p>
@@ -132,26 +148,26 @@ export default async function handler(req, res) {
       html: `
         ${pageStart}
 
-        <div style="padding:38px 32px;">
+        <div style="padding:40px 34px;">
           <p style="margin:0 0 12px;color:#dc2626;font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;">
             Enquiry received
           </p>
 
-          <h1 style="margin:0 0 22px;color:#ffffff;font-size:34px;line-height:1.05;font-weight:900;text-transform:uppercase;">
+          <h1 style="margin:0 0 22px;color:#ffffff;font-size:36px;line-height:1.05;font-weight:900;text-transform:uppercase;">
             Thanks for getting in touch, ${safeName}.
           </h1>
 
-          <div style="height:2px;width:76px;background:#dc2626;margin:0 0 28px;"></div>
+          <div style="height:2px;width:76px;background:#dc2626;margin:0 0 30px;"></div>
 
           <p style="margin:0 0 18px;color:#d4d4d4;font-size:16px;line-height:1.75;">
             Your enquiry has been received. We’ll review the details and get back to you shortly.
           </p>
 
-          <p style="margin:0 0 28px;color:#a3a3a3;font-size:15px;line-height:1.75;">
-            Proper vintage, classic and motocross restorations. No shortcuts. No cheap work. Just quality builds done right.
+          <p style="margin:0 0 30px;color:#a3a3a3;font-size:15px;line-height:1.75;">
+            Lang Restorations specialises in proper vintage, classic and motocross restorations. No shortcuts. No cheap work. Just quality builds done right.
           </p>
 
-          <div style="background:#111111;border:1px solid #262626;padding:22px;margin:0 0 28px;">
+          <div style="background:#111111;border:1px solid #262626;padding:24px;margin:0 0 30px;">
             <p style="margin:0 0 16px;color:#777;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;">
               Your enquiry summary
             </p>
@@ -176,7 +192,7 @@ export default async function handler(req, res) {
             View Our Builds
           </a>
 
-          <p style="margin:28px 0 0;color:#777;font-size:13px;line-height:1.7;">
+          <p style="margin:30px 0 0;color:#777;font-size:13px;line-height:1.7;">
             Need to add more detail? Just reply to this email.
           </p>
         </div>
