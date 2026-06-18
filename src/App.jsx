@@ -885,23 +885,61 @@ const handleMobileNav = (target) => {
           <Route path="/services/parts-restoration" element={<PartsRestorationPage />} />
           </Routes>
 
-          {/* Footer */}
-          <footer className="py-12 px-6 bg-black border-t border-gray-900">
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-              <div className="flex items-center gap-6">
-                 <img src="/lang-logo-new.png?v=10" alt="Logo" className="h-32 w-auto opacity-80 drop-shadow-2xl" />
-                 <div className="opacity-80">
-                   <p className="font-black uppercase tracking-tighter leading-none">Lang</p>
-                   <p className="text-[8px] font-bold text-red-600 uppercase tracking-[0.3em]">Restorations</p>
-                 </div>
-              </div>
-              <p className="text-[10px] font-bold text-gray-600 uppercase tracking-[0.4em]">© 2026 Lang Restorations. Traralgon, VIC. AU.</p>
-              <div className="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-gray-500">
-                <a href="#" className="hover:text-red-600">Privacy</a>
-                <a href="#" className="hover:text-red-600">Terms</a>
-              </div>
-            </div>
-          </footer>
+<footer className="py-12 px-6 bg-black border-t border-gray-900">
+  <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+
+    <div className="flex flex-col items-center md:items-start">
+      <div className="flex items-center gap-6">
+        <img
+          src="/lang-logo-new.png?v=10"
+          alt="Logo"
+          className="h-32 w-auto opacity-80 drop-shadow-2xl"
+        />
+
+        <div className="opacity-80">
+          <p className="font-black uppercase tracking-tighter leading-none">
+            Lang
+          </p>
+          <p className="text-[8px] font-bold text-red-600 uppercase tracking-[0.3em]">
+            Restorations
+          </p>
+        </div>
+      </div>
+
+      <div className="flex justify-center items-center gap-5 mt-4">
+        <a
+          href="https://www.facebook.com/langrestorations/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white hover:text-red-600 transition-all duration-300"
+          aria-label="Facebook"
+        >
+          <Facebook size={20} strokeWidth={2} />
+        </a>
+
+        <a
+          href="https://www.instagram.com/langrestorations/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white hover:text-red-600 transition-all duration-300"
+          aria-label="Instagram"
+        >
+          <Instagram size={20} strokeWidth={2} />
+        </a>
+      </div>
+    </div>
+
+    <p className="text-[10px] font-bold text-gray-600 uppercase tracking-[0.4em]">
+      © 2026 Lang Restorations. Traralgon, VIC. AU.
+    </p>
+
+    <div className="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-gray-500">
+      <a href="#" className="hover:text-red-600">Privacy</a>
+      <a href="#" className="hover:text-red-600">Terms</a>
+    </div>
+
+  </div>
+</footer>
         </>
       )}
     </div>
