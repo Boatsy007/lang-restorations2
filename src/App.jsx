@@ -395,7 +395,7 @@ const handleMobileNav = (target) => {
       status: "Available",
       price: "POA",
       img: "/lusk-progress-3.jpeg",
-      desc: "A collaboration build inspired by Jeremy Lusk's legendary CR250 race bikes of the late 1990s, featuring custom finishes and high-end components throughout. Built as a tribute to one of motocross's most iconic eras.",
+      desc: "A collaboration build inspired by Ezra Lusk's legendary CR250 race bikes of the late 1990s, featuring custom finishes and high-end components throughout. Built as a tribute to one of motocross's most iconic eras.",
       slug: "for-sale-1997-99-honda-cr250-lusk"
     },
   ];
